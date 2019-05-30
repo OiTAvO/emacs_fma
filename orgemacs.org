@@ -1,0 +1,154 @@
+* default-directory
+  #+begin_src emacs-lisp
+    ;;; home directory
+    (setq default-directory "c:/home")
+  #+end_src
+
+
+* yasnippet
+    #+begin_src emacs-lisp
+      ;;; yasnippet
+      (use-package yasnippet	
+	:ensure t
+	:config
+	(yas-global-mode 1))
+    #+end_src
+
+    
+* iedit
+  #+BEGIN_SRC emacs-lisp
+    ;;; iedit-mode
+    (use-package iedit
+      :ensure t
+      :bind ("C-c ;" . iedit-mode))
+  #+END_SRC
+
+
+* semantic
+    #+BEGIN_SRC emacs-lisp
+      ;;; semantic-mode
+      (semantic-mode 1)
+      (global-semantic-idle-scheduler-mode 1)
+    #+END_SRC
+
+
+* doc view ghostscript
+    #+BEGIN_SRC emacs-lisp
+      ;;; ghostscript .exe
+      (setq doc-view-ghostscript-program "C:/home/gs9.23/bin/gswin64c.exe")
+    #+END_SRC
+
+
+* ox-reval (presentation)
+    #+BEGIN_SRC emacs-lisp 
+      ;;; revealjs for presentations
+      (use-package ox-reveal
+	:ensure t
+	:init
+	(setq org-reveal-root "file:///C:/home/reveal.js"))
+    #+END_SRC
+
+
+* Languages
+** C and C++ MODE
+*** auto-complete
+      #+begin_src emacs-lisp
+	;;; auto-complete
+	(use-package auto-complete
+	  :ensure t
+	  :config
+	  (ac-config-default))
+      #+end_src
+
+*** semantic-auto-complete
+     #+BEGIN_SRC emacs-lisp
+       ;;; function do semanctic auto-complete
+       (defun my:semantic-autocomplete()
+	 (add-to-list 'ac-sources 'ac-source-semantic))
+     #+END_SRC
+
+*** cpplint
+      #+BEGIN_SRC emacs-lisp
+	;;; function to use flymake-google-cpplint
+	(defun my:flymake-google-init()
+	  (use-package flymake-google-cpplint
+	    :ensure t)
+	  (custom-set-variables '(flymake-google-cpplint-command "C:/Py/Scripts/cpplint.exe"))
+	  (flymake-google-cpplint-load))
+      #+END_SRC
+
+*** google C style
+     #+BEGIN_SRC emacs-lisp
+       ;;; google-c-style
+       (use-package google-c-style
+	 :ensure t)
+     #+END_SRC
+
+*** C and C++ headers
+      #+BEGIN_SRC emacs-lisp
+	;;; function to use auto-complete for header files
+	(defun my:ac-c-header-init()
+	  (use-package auto-complete-c-headers
+	    :ensure t)
+	    (add-to-list 'ac-sources 'ac-source-c-headers)
+	    (add-to-list 'ac-sources 'ac-source-yasnippet)
+	    (add-to-list 'achead:include-directories '"C:/home/Dev-Cpp/include/")
+	    (add-to-list 'achead:include-directories '"C:/home/Dev-Cpp/include/c++/3.4.2/"))
+      #+END_SRC
+
+*** srefactor
+     #+BEGIN_SRC emacs-lisp
+       ;;; srefactor
+       (use-package srefactor
+	 :ensure t
+	 :bind (("M-RET" . srefactor-refactor-at-point)
+		:map c-mode-map
+		:map c++-mode-map))
+     #+END_SRC
+
+*** hooks
+     #+BEGIN_SRC emacs-lisp
+       ;;; headers hook
+       (add-hook 'c++-mode-hook 'my:ac-c-header-init)
+       (add-hook 'c-mode-hook 'my:ac-c-header-init)
+
+       ;;; flymake hook
+       (add-hook 'c++-mode-hook 'flymake-cursor-mode)
+       (add-hook 'c-mode-hook 'my:flymake-google-init)
+       (add-hook 'c++-mode-hook 'my:flymake-google-init)
+
+       ;;; ede hook
+       ;;;(add-hook 'c++-mode-hook 'ede-minor-mode)
+
+       ;;; google c style hook
+       (add-hook 'c-mode-common-hook 'google-set-c-style)
+       (add-hook 'c-mode-common-hook 'google-make-newline-indent)
+
+       ;;; semancti auto-complete
+       (add-hook 'c-mode-common-hook 'my:semantic-autocomplete)
+     #+END_SRC
+
+
+** D MODE
+*** company-dcd 
+    #+BEGIN_SRC emacs-lisp
+      ;;; company-dcd
+      (use-package company-dcd
+	:ensure t)
+    #+END_SRC
+
+*** hooks
+    #+BEGIN_SRC emacs-lisp
+      ;;; dfmt hook
+      (add-hook 'd-mode-hook 'dfmt-setup-keys)
+
+      ;;; company-dcd hook
+      (add-hook 'd-mode-hook 'company-dcd-mode)
+
+      ;;; hook for tab-width
+      (add-hook 'd-mode-hook
+		(lambda ()
+		  (setq c-basic-offset 4)
+		  (setq tab-width 4)))
+    #+END_SRC
+    

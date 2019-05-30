@@ -1,0 +1,4 @@
+* emacs_fma
+This repository contains my emacs configuration file.
+- Platform: windows xp sp3
+- emacs version:  25.3.1 (x86_64-w64-mingw32)
