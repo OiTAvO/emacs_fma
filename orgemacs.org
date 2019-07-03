@@ -152,3 +152,13 @@
 		  (setq tab-width 4)))
     #+END_SRC
     
+
+** UML-MODE 
+*** plantuml
+#+BEGIN_SRC emacs-lisp
+  ;;; plantuml
+  (use-package plantuml-mode
+    :ensure t)
+  (add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
+#+END_SRC
+

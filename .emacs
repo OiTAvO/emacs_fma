@@ -35,7 +35,6 @@
    ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#e090d7" "#8cc4ff" "#eeeeec"])
  '(company-dcd--flags nil)
  '(company-dcd--ignore-template-argument nil)
- '(company-dcd--server-port 9166)
  '(company-dcd-client-executable "C:\\home\\DMD\\D\\dmd2\\DCD\\bin\\dcd-client.exe")
  '(company-dcd-server-executable "C:\\home\\DMD\\D\\dmd2\\DCD\\bin\\dcd-server.exe")
  '(company-idle-delay 0)
@@ -73,7 +72,10 @@
  '(org-trello-files (quote ("C:/home/teste.org")) nil (org-trello))
  '(package-selected-packages
    (quote
-    (auto-complete-config use-package intero slime pug-mode w3 2048-game vue-mode vue-html-mode lsp-vue ac-dcd company-dcd d-mode dfmt flycheck-d-unittest material-theme srefactor tomatinho gtk-pomodoro-indicator htmlize org-present company-irony company-irony-c-headers flycheck-irony irony ace-window company-jedi jedi pyenv-mode elpy org-trello jdee yasnippet-classic-snippets google-c-style flymake-cursor flymake-google-cpplint iedit yasnippet-snippets auto-complete-c-headers yasnippet emmet-mode emms auto-complete)))
+    (graphviz-dot-mode plantuml plantuml-mode auto-complete-config use-package intero slime pug-mode w3 2048-game vue-mode vue-html-mode lsp-vue ac-dcd company-dcd d-mode dfmt flycheck-d-unittest material-theme srefactor tomatinho gtk-pomodoro-indicator htmlize org-present company-irony company-irony-c-headers flycheck-irony irony ace-window company-jedi jedi pyenv-mode elpy org-trello jdee yasnippet-classic-snippets google-c-style flymake-cursor flymake-google-cpplint iedit yasnippet-snippets auto-complete-c-headers yasnippet emmet-mode emms auto-complete)))
+ '(plantuml-default-exec-mode (quote jar))
+ '(plantuml-jar-path "~/plantuml.jar")
+ '(plantuml-server-url "https://www.plantuml.com/plantuml")
  '(python-shell-exec-path (quote ("C:/Py/python.exe")))
  '(python-shell-interpreter "c:/Py/python")
  '(semantic-mode t)
