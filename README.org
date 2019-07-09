@@ -1,9 +1,3 @@
-#+begin_export html
-  <a href="./blob/master/LICENSE">
-    <img src="https://img.shields.io/badge/license-GPL--3.0-green.svg">
-  </a>
-#+end_export
-
 * emacs_fma
 This repository contains my emacs configuration file.
 - Platform: windows xp sp3
