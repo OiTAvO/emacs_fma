@@ -35,7 +35,7 @@
 * doc view ghostscript
     #+BEGIN_SRC emacs-lisp
       ;;; ghostscript .exe
-      (setq doc-view-ghostscript-program "C:/home/gs9.23/bin/gswin64c.exe")
+      (setq doc-view-ghostscript-program "C:/home/ghostscript/gs9.27/bin/gswin64c.exe")
     #+END_SRC
 
 
@@ -57,6 +57,7 @@
 	(use-package auto-complete
 	  :ensure t
 	  :config
+	  (require 'auto-complete-config)
 	  (ac-config-default))
       #+end_src
 
@@ -70,10 +71,15 @@
 *** cpplint
       #+BEGIN_SRC emacs-lisp
 	;;; function to use flymake-google-cpplint
+	(use-package flymake-google-cpplint
+	  :ensure t)
+
+	(use-package flymake-cursor
+	  :ensure t)
+
 	(defun my:flymake-google-init()
-	  (use-package flymake-google-cpplint
-	    :ensure t)
-	  (custom-set-variables '(flymake-google-cpplint-command "C:/Py/Scripts/cpplint.exe"))
+	  (custom-set-variables
+	   '(flymake-google-cpplint-command "C:/home/py/Scripts/cpplint.exe"))
 	  (flymake-google-cpplint-load))
       #+END_SRC
 
@@ -83,17 +89,18 @@
        (use-package google-c-style
 	 :ensure t)
      #+END_SRC
-
+     
 *** C and C++ headers
       #+BEGIN_SRC emacs-lisp
 	;;; function to use auto-complete for header files
+	(use-package auto-complete-c-headers
+	  :ensure t)
+
 	(defun my:ac-c-header-init()
-	  (use-package auto-complete-c-headers
-	    :ensure t)
-	    (add-to-list 'ac-sources 'ac-source-c-headers)
-	    (add-to-list 'ac-sources 'ac-source-yasnippet)
-	    (add-to-list 'achead:include-directories '"C:/home/Dev-Cpp/include/")
-	    (add-to-list 'achead:include-directories '"C:/home/Dev-Cpp/include/c++/3.4.2/"))
+	  (add-to-list 'ac-sources 'ac-source-c-headers)
+	  (add-to-list 'ac-sources 'ac-source-yasnippet)
+	  (add-to-list 'achead:include-directories '"C:/home/Ruby25-x64/msys64/mingw64/include/")
+	  (add-to-list 'achead:include-directories '"C:/home/Ruby25-x64/msys64/mingw64/include/c++/9.1.0/"))
       #+END_SRC
 
 *** srefactor
@@ -109,8 +116,9 @@
 *** hooks
      #+BEGIN_SRC emacs-lisp
        ;;; headers hook
-       (add-hook 'c++-mode-hook 'my:ac-c-header-init)
        (add-hook 'c-mode-hook 'my:ac-c-header-init)
+       (add-hook 'c++-mode-hook 'my:ac-c-header-init)
+
 
        ;;; flymake hook
        (add-hook 'c++-mode-hook 'flymake-cursor-mode)
@@ -128,12 +136,18 @@
        (add-hook 'c-mode-common-hook 'my:semantic-autocomplete)
      #+END_SRC
 
-
+     
 ** D MODE
 *** company-dcd 
     #+BEGIN_SRC emacs-lisp
       ;;; company-dcd
       (use-package company-dcd
+	:ensure t)
+    #+END_SRC
+
+*** dfmt  
+    #+BEGIN_SRC emacs-lisp
+      (use-package dfmt
 	:ensure t)
     #+END_SRC
 
