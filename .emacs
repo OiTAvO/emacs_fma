@@ -5,11 +5,14 @@
 	     '("melpa" . "http://melpa.milkbox.net/packages/"))
 (package-initialize)
 
-;;; load org file
-(org-babel-load-file (expand-file-name "~/orgemacs.org"))
+(if (not (require 'use-package nil t))
+    (package-install 'use-package))
 
 (eval-when-compile
   (require 'use-package))
+
+;;; load org file
+(org-babel-load-file (expand-file-name "~/orgemacs.org"))
 
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
@@ -46,7 +49,7 @@
  '(custom-enabled-themes (quote (leuven)))
  '(custom-safe-themes
    (quote
-    ("732b807b0543855541743429c9979ebfb363e27ec91e82f463c91e68c772f6e3" "a24c5b3c12d147da6cef80938dca1223b7c7f70f2f382b26308eba014dc4833a" default)))
+    ("274fa62b00d732d093fc3f120aca1b31a6bb484492f31081c1814a858e25c72e" "732b807b0543855541743429c9979ebfb363e27ec91e82f463c91e68c772f6e3" "a24c5b3c12d147da6cef80938dca1223b7c7f70f2f382b26308eba014dc4833a" default)))
  '(electric-pair-mode t)
  '(fci-rule-color "#37474f")
  '(fldd-dub-configuration nil)
@@ -67,7 +70,7 @@
  '(org-babel-load-languages (quote ((emacs-lisp . t) (C . t))))
  '(package-selected-packages
    (quote
-    (flymake-cursor haskell-interactive-mode company-c-headers ac-clang ac-c-headers graphviz-dot-mode plantuml plantuml-mode auto-complete-config use-package intero slime pug-mode w3 2048-game vue-mode vue-html-mode lsp-vue ac-dcd company-dcd d-mode dfmt flycheck-d-unittest material-theme srefactor tomatinho gtk-pomodoro-indicator htmlize org-present company-irony company-irony-c-headers flycheck-irony irony ace-window company-jedi jedi pyenv-mode elpy org-trello jdee yasnippet-classic-snippets google-c-style flymake-google-cpplint iedit yasnippet-snippets auto-complete-c-headers yasnippet emmet-mode emms auto-complete)))
+    (dracula-theme flymake-cursor haskell-interactive-mode company-c-headers ac-clang ac-c-headers graphviz-dot-mode plantuml plantuml-mode auto-complete-config intero slime pug-mode w3 2048-game vue-mode vue-html-mode lsp-vue ac-dcd company-dcd d-mode dfmt flycheck-d-unittest material-theme srefactor tomatinho gtk-pomodoro-indicator htmlize org-present company-irony company-irony-c-headers flycheck-irony irony ace-window company-jedi jedi pyenv-mode elpy org-trello jdee yasnippet-classic-snippets google-c-style flymake-google-cpplint iedit yasnippet-snippets auto-complete-c-headers yasnippet emmet-mode emms auto-complete)))
  '(plantuml-default-exec-mode (quote jar))
  '(plantuml-jar-path "c/home/plantuml/plantuml.jar")
  '(plantuml-server-url "https://www.plantuml.com/plantuml")
