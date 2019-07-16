@@ -1,171 +1,172 @@
 * default-directory
-  #+begin_src emacs-lisp
-    ;;; home directory
-    (setq default-directory "c:/home")
-  #+end_src
+#+BEGIN_SRC emacs-lisp
+;;; home directory
+(setq default-directory "c:/home")
+#+END_SRC
 
 
 * yasnippet
-    #+begin_src emacs-lisp
-      ;;; yasnippet
-      (use-package yasnippet	
-	:ensure t
-	:config
-	(yas-global-mode 1))
-    #+end_src
+#+BEGIN_SRC emacs-lisp
+  ;;; yasnippet
+  (use-package yasnippet	
+    :ensure t
+    :config
+    (yas-global-mode 1))
+#+END_SRC
 
-    
+
 * iedit
-  #+BEGIN_SRC emacs-lisp
-    ;;; iedit-mode
-    (use-package iedit
-      :ensure t
-      :bind ("C-c ;" . iedit-mode))
-  #+END_SRC
+#+BEGIN_SRC emacs-lisp
+  ;;; iedit-mode
+  (use-package iedit
+    :ensure t
+    :bind ("C-c ;" . iedit-mode))
+#+END_SRC
 
 
 * semantic
-    #+BEGIN_SRC emacs-lisp
-      ;;; semantic-mode
-      (semantic-mode 1)
-      (global-semantic-idle-scheduler-mode 1)
-    #+END_SRC
+#+BEGIN_SRC emacs-lisp
+  ;;; semantic-mode
+  (semantic-mode 1)
+  (global-semantic-idle-scheduler-mode 1)
+#+END_SRC
 
 
 * doc view ghostscript
-    #+BEGIN_SRC emacs-lisp
-      ;;; ghostscript .exe
-      (setq doc-view-ghostscript-program "C:/home/ghostscript/gs9.27/bin/gswin64c.exe")
-    #+END_SRC
+#+BEGIN_SRC emacs-lisp
+  ;;; ghostscript .exe
+  (setq doc-view-ghostscript-program "C:/home/ghostscript/bin/gswin64c.exe")
+#+END_SRC
 
 
 * ox-reval (presentation)
-    #+BEGIN_SRC emacs-lisp 
-      ;;; revealjs for presentations
-      (use-package ox-reveal
-	:ensure t
-	:init
-	(setq org-reveal-root "file:///C:/home/reveal.js"))
-    #+END_SRC
+#+BEGIN_SRC emacs-lisp 
+  ;;; revealjs for presentations
+  (use-package ox-reveal
+    :ensure t
+    :init
+    (setq org-reveal-root "file:///C:/home/reveal.js"))
+#+END_SRC
 
 
 * Languages
 ** C and C++ MODE
 *** auto-complete
-      #+begin_src emacs-lisp
-	;;; auto-complete
-	(use-package auto-complete
-	  :ensure t
-	  :config
-	  (require 'auto-complete-config)
-	  (ac-config-default))
-      #+end_src
+#+BEGIN_SRC emacs-lisp
+  ;;; auto-complete
+  (use-package auto-complete
+    :ensure t
+    :config
+    (require 'auto-complete-config)
+    (ac-config-default))
+#+END_SRC
 
 *** semantic-auto-complete
-     #+BEGIN_SRC emacs-lisp
-       ;;; function do semanctic auto-complete
-       (defun my:semantic-autocomplete()
-	 (add-to-list 'ac-sources 'ac-source-semantic))
-     #+END_SRC
+#+BEGIN_SRC emacs-lisp
+  ;;; function do semanctic auto-complete
+  (defun my:semantic-autocomplete()
+    (add-to-list 'ac-sources 'ac-source-semantic))
+#+END_SRC
 
 *** cpplint
-      #+BEGIN_SRC emacs-lisp
-	;;; function to use flymake-google-cpplint
-	(use-package flymake-google-cpplint
-	  :ensure t)
+#+BEGIN_SRC emacs-lisp
+  ;;; function to use flymake-google-cpplint
+  (use-package flymake-google-cpplint
+    :ensure t)
 
-	(use-package flymake-cursor
-	  :ensure t)
+  (use-package flymake-cursor
+    :ensure t)
 
-	(defun my:flymake-google-init()
-	  (custom-set-variables
-	   '(flymake-google-cpplint-command "C:/home/py/Scripts/cpplint.exe"))
-	  (flymake-google-cpplint-load))
-      #+END_SRC
+  (defun my:flymake-google-init()
+    (custom-set-variables
+     '(flymake-google-cpplint-command "C:/home/py/Scripts/cpplint.exe"))
+    (flymake-google-cpplint-load))
+#+END_SRC
 
 *** google C style
-     #+BEGIN_SRC emacs-lisp
-       ;;; google-c-style
-       (use-package google-c-style
-	 :ensure t)
-     #+END_SRC
-     
-*** C and C++ headers
-      #+BEGIN_SRC emacs-lisp
-	;;; function to use auto-complete for header files
-	(use-package auto-complete-c-headers
-	  :ensure t)
+#+BEGIN_SRC emacs-lisp
+  ;;; google-c-style
+  (use-package google-c-style
+    :ensure t)
+#+END_SRC
 
-	(defun my:ac-c-header-init()
-	  (add-to-list 'ac-sources 'ac-source-c-headers)
-	  (add-to-list 'ac-sources 'ac-source-yasnippet)
-	  (add-to-list 'achead:include-directories '"C:/home/Ruby25-x64/msys64/mingw64/include/")
-	  (add-to-list 'achead:include-directories '"C:/home/Ruby25-x64/msys64/mingw64/include/c++/9.1.0/"))
-      #+END_SRC
+*** C and C++ headers
+#+BEGIN_SRC emacs-lisp
+  ;;; function to use auto-complete for header files
+  (use-package auto-complete-c-headers
+    :ensure t)
+
+  (defun my:ac-c-header-init()
+    (add-to-list 'ac-sources 'ac-source-c-headers)
+    (add-to-list 'ac-sources 'ac-source-yasnippet)
+    (add-to-list 'achead:include-directories '"C:/home/c-cpp-headers/c-headers")
+    (add-to-list 'achead:include-directories '"C:/home/c-cpp-headers/cpp-headers"))
+#+END_SRC
 
 *** srefactor
-     #+BEGIN_SRC emacs-lisp
-       ;;; srefactor
-       (use-package srefactor
-	 :ensure t
-	 :bind (("M-RET" . srefactor-refactor-at-point)
-		:map c-mode-map
-		:map c++-mode-map))
-     #+END_SRC
+#+BEGIN_SRC emacs-lisp
+  ;;; srefactor
+  (use-package srefactor
+    :ensure t
+    :bind (("M-RET" . srefactor-refactor-at-point)
+	   :map c-mode-map
+	   :map c++-mode-map))
+#+END_SRC
 
 *** hooks
-     #+BEGIN_SRC emacs-lisp
-       ;;; headers hook
-       (add-hook 'c-mode-hook 'my:ac-c-header-init)
-       (add-hook 'c++-mode-hook 'my:ac-c-header-init)
+#+BEGIN_SRC emacs-lisp
+  ;;; headers hook
+  (add-hook 'c-mode-hook 'my:ac-c-header-init)
+  (add-hook 'c++-mode-hook 'my:ac-c-header-init)
 
 
-       ;;; flymake hook
-       (add-hook 'c++-mode-hook 'flymake-cursor-mode)
-       (add-hook 'c-mode-hook 'my:flymake-google-init)
-       (add-hook 'c++-mode-hook 'my:flymake-google-init)
+  ;;; flymake hook
+  (add-hook 'c++-mode-hook 'flymake-cursor-mode)
+  (add-hook 'c-mode-hook 'my:flymake-google-init)
+  (add-hook 'c++-mode-hook 'my:flymake-google-init)
 
-       ;;; ede hook
-       ;;;(add-hook 'c++-mode-hook 'ede-minor-mode)
+  ;;; ede hook
+  ;;;(add-hook 'c++-mode-hook 'ede-minor-mode)
 
-       ;;; google c style hook
-       (add-hook 'c-mode-common-hook 'google-set-c-style)
-       (add-hook 'c-mode-common-hook 'google-make-newline-indent)
+  ;;; google c style hook
+  (add-hook 'c-mode-common-hook 'google-set-c-style)
+  (add-hook 'c-mode-common-hook 'google-make-newline-indent)
 
-       ;;; semancti auto-complete
-       (add-hook 'c-mode-common-hook 'my:semantic-autocomplete)
-     #+END_SRC
+  ;;; semancti auto-complete
+  (add-hook 'c-mode-common-hook 'my:semantic-autocomplete)
+#+END_SRC
 
-     
+
 ** D MODE
 *** company-dcd 
-    #+BEGIN_SRC emacs-lisp
-      ;;; company-dcd
-      (use-package company-dcd
-	:ensure t)
-    #+END_SRC
+#+BEGIN_SRC emacs-lisp
+  ;;; company-dcd
+  (use-package company-dcd
+    :ensure t)
+#+END_SRC
 
 *** dfmt  
-    #+BEGIN_SRC emacs-lisp
-      (use-package dfmt
-	:ensure t)
-    #+END_SRC
+#+BEGIN_SRC emacs-lisp
+  ;;; dfmt
+  (use-package dfmt
+    :ensure t)
+#+END_SRC
 
 *** hooks
-    #+BEGIN_SRC emacs-lisp
-      ;;; dfmt hook
-      (add-hook 'd-mode-hook 'dfmt-setup-keys)
+#+BEGIN_SRC emacs-lisp
+  ;;; dfmt hook
+  (add-hook 'd-mode-hook 'dfmt-setup-keys)
 
-      ;;; company-dcd hook
-      (add-hook 'd-mode-hook 'company-dcd-mode)
+  ;;; company-dcd hook
+  (add-hook 'd-mode-hook 'company-dcd-mode)
 
-      ;;; hook for tab-width
-      (add-hook 'd-mode-hook
-		(lambda ()
-		  (setq c-basic-offset 4)
-		  (setq tab-width 4)))
-    #+END_SRC
-    
+  ;;; hook for tab-width
+  (add-hook 'd-mode-hook
+	    (lambda ()
+	      (setq c-basic-offset 4)
+	      (setq tab-width 4)))
+#+END_SRC
+
 
 ** UML-MODE 
 *** plantuml
@@ -174,5 +175,50 @@
   (use-package plantuml-mode
     :ensure t)
   (add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
+#+END_SRC
+
+
+** HASKELL-MODE
+*** haskell-mode
+#+BEGIN_SRC emacs-lisp
+  ;;; haskell-mode
+  (use-package haskell-mode
+    :ensure t
+    :config
+    (require 'haskell-interactive-mode)
+    (require 'haskell-process))
+#+END_SRC
+
+*** hindent
+#+BEGIN_SRC emacs-lisp
+  ;;; hindent
+  (use-package hindent
+    :ensure t)
+#+END_SRC
+
+*** company-ghci
+#+BEGIN_SRC emacs-lisp
+  ;;; company-ghci
+  (use-package company-ghci
+    :ensure t
+    :config
+    (push 'company-ghci company-backends)
+    (defun my-company-ghci()
+      (auto-complete-mode -1)
+      ))
+#+END_SRC
+
+*** hook
+#+BEGIN_SRC emacs-lisp
+  ;;; hindent-hook
+  (add-hook 'haskell-mode-hook 'hindent-mode)
+
+  ;;; interactive-haskell-hook
+  (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+
+  ;;; company-ghci-hook
+  (add-hook 'haskell-mode-hook 'company-mode)
+  (add-hook 'haskell-mode-hook 'my-company-ghci)
+  (add-hook 'haskell-interactive-mode-hook 'company-mode)
 #+END_SRC
 
