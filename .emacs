@@ -36,6 +36,7 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#e090d7" "#8cc4ff" "#eeeeec"])
+ '(column-number-mode t)
  '(company-dcd--flags nil)
  '(company-dcd--ignore-template-argument nil)
  '(company-dcd-client-executable "C:\\home\\D\\DCD\\bin\\dcd-client.exe")
