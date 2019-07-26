@@ -67,7 +67,7 @@
   (use-package ox-reveal
     :ensure t
     :init
-    (setq org-reveal-root "file:///C:/home/reveal.js"))
+    (setq org-reveal-root "file:///~/reveal.js"))
 #+END_SRC
 
 
