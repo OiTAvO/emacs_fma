@@ -1,4 +1,5 @@
 #+TITLE: My emacs init file for linux
+#+OPTIONS: toc:nil
 
 * default-directory
 #+BEGIN_SRC emacs-lisp
@@ -70,7 +71,11 @@
   (use-package ox-reveal
     :ensure t
     :init
-    (setq org-reveal-root "file:///~/reveal.js"))
+    (setq org-reveal-root "file:///home/otavio/reveal.js"))
+
+  ;;; htmlize as dependency
+  (use-package htmlize
+    :ensure t)
 #+END_SRC
 
 
