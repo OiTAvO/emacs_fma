@@ -50,7 +50,10 @@
  '(custom-enabled-themes (quote (leuven)))
  '(custom-safe-themes
    (quote
-    ("274fa62b00d732d093fc3f120aca1b31a6bb484492f31081c1814a858e25c72e" "732b807b0543855541743429c9979ebfb363e27ec91e82f463c91e68c772f6e3" "a24c5b3c12d147da6cef80938dca1223b7c7f70f2f382b26308eba014dc4833a" default)))
+    ("5057614f7e14de98bbc02200e2fe827ad897696bfd222d1bcab42ad8ff313e20" "274fa62b00d732d093fc3f120aca1b31a6bb484492f31081c1814a858e25c72e" "732b807b0543855541743429c9979ebfb363e27ec91e82f463c91e68c772f6e3" "a24c5b3c12d147da6cef80938dca1223b7c7f70f2f382b26308eba014dc4833a" default)))
+ '(display-battery-mode t)
+ '(display-time-mode t)
+ '(doom-modeline-mode t)
  '(electric-pair-mode t)
  '(fci-rule-color "#37474f")
  '(fldd-dub-configuration nil)
@@ -71,10 +74,11 @@
  '(org-babel-load-languages (quote ((emacs-lisp . t) (C . t))))
  '(package-selected-packages
    (quote
-    (doom-modeline all-the-icons dracula-theme flymake-cursor haskell-interactive-mode company-c-headers ac-clang ac-c-headers graphviz-dot-mode plantuml plantuml-mode auto-complete-config intero slime pug-mode w3 2048-game vue-mode vue-html-mode lsp-vue ac-dcd company-dcd d-mode dfmt flycheck-d-unittest material-theme srefactor tomatinho gtk-pomodoro-indicator htmlize org-present company-irony company-irony-c-headers flycheck-irony irony ace-window company-jedi jedi pyenv-mode elpy org-trello jdee yasnippet-classic-snippets google-c-style flymake-google-cpplint iedit yasnippet-snippets auto-complete-c-headers yasnippet emmet-mode emms auto-complete)))
+    (powerline all-the-icons dracula-theme flymake-cursor haskell-interactive-mode company-c-headers ac-clang ac-c-headers graphviz-dot-mode plantuml plantuml-mode auto-complete-config intero slime pug-mode w3 2048-game vue-mode vue-html-mode lsp-vue ac-dcd company-dcd d-mode dfmt flycheck-d-unittest material-theme srefactor tomatinho gtk-pomodoro-indicator htmlize org-present company-irony company-irony-c-headers flycheck-irony irony ace-window company-jedi jedi pyenv-mode elpy org-trello jdee yasnippet-classic-snippets google-c-style flymake-google-cpplint iedit yasnippet-snippets auto-complete-c-headers yasnippet emmet-mode emms auto-complete)))
  '(plantuml-default-exec-mode (quote jar))
  '(plantuml-jar-path "c/home/plantuml/plantuml.jar")
  '(plantuml-server-url "https://www.plantuml.com/plantuml")
+ '(powerline-default-separator (quote arrow))
  '(python-shell-exec-path (quote ("C:/home/py/python.exe")))
  '(python-shell-interpreter "c:/home/py/python")
  '(semantic-mode t)

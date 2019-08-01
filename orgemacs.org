@@ -1,15 +1,12 @@
 #+TITLE: My emacs init file for windows
+#+OPTIONS: toc:nil num:nil date:nil html-postamble:nil
 
-* mode-line
+* powerline
 #+BEGIN_SRC emacs-lisp
-  ;;; all-the-icons package
-  (use-package all-the-icons
-    :ensure t)
-
-  ;;; doom-modeline
-  (use-package doom-modeline
+  ;;; powerline-mode
+  (use-package powerline
     :ensure t
-    :hook (after-init . doom-modeline-mode))
+    :config (powerline-center-theme))
 #+END_SRC
 
 
