@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>My emacs init file for windows</title>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.8.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.8.0/css/theme/black.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js@3.8.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1>My emacs init file for windows</h1>
+</section>
+
+<section>
+<section id="slide-orgb022e2d">
+<h2 id="orgb022e2d">powerline</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">powerline-mode</span>
+(<span style="color: #0000FF;">use-package</span> <span style="color: #D0372D;">powerline</span>
+  <span style="color: #006FE0;">:ensure</span> t
+  <span style="color: #006FE0;">:config</span> (powerline-center-theme))
+</code></pre>
+</div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org643d1a9">
+<h2 id="org643d1a9">default-directory</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">home directory</span>
+(<span style="color: #0000FF;">setq</span> default-directory <span style="color: #008000;">"c:/home"</span>)
+</code></pre>
+</div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgb736fef">
+<h2 id="orgb736fef">magit</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">magit package</span>
+(<span style="color: #0000FF;">use-package</span> <span style="color: #D0372D;">magit</span>
+  <span style="color: #006FE0;">:ensure</span> t)
+</code></pre>
+</div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org7879ee3">
+<h2 id="org7879ee3">magithub</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">magithub package</span>
+(<span style="color: #0000FF;">use-package</span> <span style="color: #D0372D;">magithub</span>
+  <span style="color: #006FE0;">:after</span> magit
+  <span style="color: #006FE0;">:ensure</span> t
+  <span style="color: #006FE0;">:config</span>
+  (magithub-feature-autoinject t)
+  (<span style="color: #0000FF;">setq</span> magithub-clone-default-directory <span style="color: #008000;">"~/github"</span>))
+</code></pre>
+</div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org6c8bc34">
+<h2 id="org6c8bc34">yasnippet</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">yasnippet</span>
+(<span style="color: #0000FF;">use-package</span> <span style="color: #D0372D;">yasnippet</span>  
+  <span style="color: #006FE0;">:ensure</span> t
+  <span style="color: #006FE0;">:config</span>
+  (yas-global-mode 1))
+</code></pre>
+</div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org9e5922e">
+<h2 id="org9e5922e">iedit</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">iedit-mode</span>
+(<span style="color: #0000FF;">use-package</span> <span style="color: #D0372D;">iedit</span>
+  <span style="color: #006FE0;">:ensure</span> t
+  <span style="color: #006FE0;">:bind</span> (<span style="color: #008000;">"C-c ;"</span> . iedit-mode))
+</code></pre>
+</div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgb3fe9a5">
+<h2 id="orgb3fe9a5">semantic</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">semantic-mode</span>
+(semantic-mode 1)
+(global-semantic-idle-scheduler-mode 1)
+</code></pre>
+</div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org7e94768">
+<h2 id="org7e94768">doc view ghostscript</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">ghostscript .exe</span>
+(<span style="color: #0000FF;">setq</span> doc-view-ghostscript-program <span style="color: #008000;">"C:/home/ghostscript/bin/gswin64c.exe"</span>)
+</code></pre>
+</div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org404a3aa">
+<h2 id="org404a3aa">ox-reval (presentation)</h2>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">revealjs for presentations</span>
+(<span style="color: #0000FF;">use-package</span> <span style="color: #D0372D;">ox-reveal</span>
+  <span style="color: #006FE0;">:ensure</span> t
+  <span style="color: #006FE0;">:init</span>
+  (<span style="color: #0000FF;">setq</span> org-reveal-root <span style="color: #008000;">"file:///C:/home/reveal.js"</span>))
+
+<span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">htmlize package as dependency</span>
+(<span style="color: #0000FF;">use-package</span> <span style="color: #D0372D;">htmlize</span>
+  <span style="color: #006FE0;">:ensure</span> t)
+</code></pre>
+</div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgd9930e2">
+<h2 id="orgd9930e2">Languages</h2>
+<div class="outline-text-2" id="text-orgd9930e2">
+</div>
+</section>
+<section id="slide-org621e98d">
+<h3 id="org621e98d">C and C++ MODE</h3>
+<div class="outline-text-3" id="text-org621e98d">
+</div>
+</section>
+<section id="slide-orgff97f00">
+<h4 id="orgff97f00">auto-complete</h4>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">auto-complete</span>
+(<span style="color: #0000FF;">use-package</span> <span style="color: #D0372D;">auto-complete</span>
+  <span style="color: #006FE0;">:ensure</span> t
+  <span style="color: #006FE0;">:config</span>
+  (<span style="color: #0000FF;">require</span> '<span style="color: #D0372D;">auto-complete-config</span>)
+  (ac-config-default))
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgad06a4f">
+<h4 id="orgad06a4f">semantic-auto-complete</h4>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">function do semanctic auto-complete</span>
+(<span style="color: #0000FF;">defun</span> <span style="color: #006699;">my:semantic-autocomplete</span>()
+  (add-to-list 'ac-sources 'ac-source-semantic))
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgdd443da">
+<h4 id="orgdd443da">cpplint</h4>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">function to use flymake-google-cpplint</span>
+(<span style="color: #0000FF;">use-package</span> <span style="color: #D0372D;">flymake-google-cpplint</span>
+  <span style="color: #006FE0;">:ensure</span> t)
+
+(<span style="color: #0000FF;">use-package</span> <span style="color: #D0372D;">flymake-cursor</span>
+  <span style="color: #006FE0;">:ensure</span> t)
+
+(<span style="color: #0000FF;">defun</span> <span style="color: #006699;">my:flymake-google-init</span>()
+  (custom-set-variables
+   '(flymake-google-cpplint-command <span style="color: #008000;">"C:/home/py/Scripts/cpplint.exe"</span>))
+  (flymake-google-cpplint-load))
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org845e036">
+<h4 id="org845e036">google C style</h4>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">google-c-style</span>
+(<span style="color: #0000FF;">use-package</span> <span style="color: #D0372D;">google-c-style</span>
+  <span style="color: #006FE0;">:ensure</span> t)
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org6da060d">
+<h4 id="org6da060d">C and C++ headers</h4>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">function to use auto-complete for header files</span>
+(<span style="color: #0000FF;">use-package</span> <span style="color: #D0372D;">auto-complete-c-headers</span>
+  <span style="color: #006FE0;">:ensure</span> t)
+
+(<span style="color: #0000FF;">defun</span> <span style="color: #006699;">my:ac-c-header-init</span>()
+  (add-to-list 'ac-sources 'ac-source-c-headers)
+  (add-to-list 'ac-sources 'ac-source-yasnippet)
+  (add-to-list 'achead:include-directories '<span style="color: #008000;">"C:/home/c-cpp-headers/c-headers"</span>)
+  (add-to-list 'achead:include-directories '<span style="color: #008000;">"C:/home/c-cpp-headers/cpp-headers"</span>))
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org7c03703">
+<h4 id="org7c03703">srefactor</h4>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">srefactor</span>
+(<span style="color: #0000FF;">use-package</span> <span style="color: #D0372D;">srefactor</span>
+  <span style="color: #006FE0;">:ensure</span> t
+  <span style="color: #006FE0;">:bind</span> ((<span style="color: #008000;">"M-RET"</span> . srefactor-refactor-at-point)
+         <span style="color: #006FE0;">:map</span> c-mode-map
+         <span style="color: #006FE0;">:map</span> c++-mode-map))
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org514c000">
+<h4 id="org514c000">hooks</h4>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">headers hook</span>
+(add-hook 'c-mode-hook 'my:ac-c-header-init)
+(add-hook 'c++-mode-hook 'my:ac-c-header-init)
+
+
+<span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">flymake hook</span>
+(add-hook 'c++-mode-hook 'flymake-cursor-mode)
+(add-hook 'c-mode-hook 'my:flymake-google-init)
+(add-hook 'c++-mode-hook 'my:flymake-google-init)
+
+<span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">ede hook</span>
+<span style="color: #8D8D84;">;;;</span><span style="color: #8D8D84; font-style: italic;">(add-hook 'c++-mode-hook 'ede-minor-mode)</span>
+
+<span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">google c style hook</span>
+(add-hook 'c-mode-common-hook 'google-set-c-style)
+(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+
+<span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">semancti auto-complete</span>
+(add-hook 'c-mode-common-hook 'my:semantic-autocomplete)
+</code></pre>
+</div>
+
+
+</section>
+<section id="slide-orgc8fe731">
+<h3 id="orgc8fe731">D MODE</h3>
+<div class="outline-text-3" id="text-orgc8fe731">
+</div>
+</section>
+<section id="slide-org8855403">
+<h4 id="org8855403">company-dcd</h4>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">company-dcd</span>
+(<span style="color: #0000FF;">use-package</span> <span style="color: #D0372D;">company-dcd</span>
+  <span style="color: #006FE0;">:ensure</span> t)
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org06486a7">
+<h4 id="org06486a7">dfmt</h4>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">dfmt</span>
+(<span style="color: #0000FF;">use-package</span> <span style="color: #D0372D;">dfmt</span>
+  <span style="color: #006FE0;">:ensure</span> t)
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org19b1d35">
+<h4 id="org19b1d35">hooks</h4>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">dfmt hook</span>
+(add-hook 'd-mode-hook 'dfmt-setup-keys)
+
+<span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">company-dcd hook</span>
+(add-hook 'd-mode-hook 'company-dcd-mode)
+
+<span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">hook for tab-width</span>
+(add-hook 'd-mode-hook
+          (<span style="color: #0000FF;">lambda</span> ()
+            (<span style="color: #0000FF;">setq</span> c-basic-offset 4)
+            (<span style="color: #0000FF;">setq</span> tab-width 4)))
+</code></pre>
+</div>
+
+
+</section>
+<section id="slide-org414faa9">
+<h3 id="org414faa9">UML-MODE</h3>
+<div class="outline-text-3" id="text-org414faa9">
+</div>
+</section>
+<section id="slide-org881a41d">
+<h4 id="org881a41d">plantuml</h4>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">plantuml</span>
+(<span style="color: #0000FF;">use-package</span> <span style="color: #D0372D;">plantuml-mode</span>
+  <span style="color: #006FE0;">:ensure</span> t)
+(add-to-list 'auto-mode-alist '(<span style="color: #008000;">"\\.plantuml\\'"</span> . plantuml-mode))
+</code></pre>
+</div>
+
+
+</section>
+<section id="slide-org72026f2">
+<h3 id="org72026f2">HASKELL-MODE</h3>
+<div class="outline-text-3" id="text-org72026f2">
+</div>
+</section>
+<section id="slide-orgc94a006">
+<h4 id="orgc94a006">haskell-mode</h4>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">haskell-mode</span>
+(<span style="color: #0000FF;">use-package</span> <span style="color: #D0372D;">haskell-mode</span>
+  <span style="color: #006FE0;">:ensure</span> t
+  <span style="color: #006FE0;">:config</span>
+  (<span style="color: #0000FF;">require</span> '<span style="color: #D0372D;">haskell-interactive-mode</span>)
+  (<span style="color: #0000FF;">require</span> '<span style="color: #D0372D;">haskell-process</span>))
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgfad5825">
+<h4 id="orgfad5825">hindent</h4>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">hindent</span>
+(<span style="color: #0000FF;">use-package</span> <span style="color: #D0372D;">hindent</span>
+  <span style="color: #006FE0;">:ensure</span> t)
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgc623dd1">
+<h4 id="orgc623dd1">company-ghci</h4>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">company-ghci</span>
+(<span style="color: #0000FF;">use-package</span> <span style="color: #D0372D;">company-ghci</span>
+  <span style="color: #006FE0;">:ensure</span> t
+  <span style="color: #006FE0;">:config</span>
+  (<span style="color: #0000FF;">push</span> 'company-ghci company-backends)
+  (<span style="color: #0000FF;">defun</span> <span style="color: #006699;">my-company-ghci</span>()
+    (auto-complete-mode -1)
+    ))
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org78ffa16">
+<h4 id="org78ffa16">hook</h4>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"><code trim><span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">hindent-hook</span>
+(add-hook 'haskell-mode-hook 'hindent-mode)
+
+<span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">interactive-haskell-hook</span>
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+
+<span style="color: #8D8D84;">;;; </span><span style="color: #8D8D84; font-style: italic;">company-ghci-hook</span>
+(add-hook 'haskell-mode-hook 'company-mode)
+(add-hook 'haskell-mode-hook 'my-company-ghci)
+(add-hook 'haskell-interactive-mode-hook 'company-mode)
+</code></pre>
+</div>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@3.8.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'convex', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.8.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.8.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.8.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.8.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.8.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
