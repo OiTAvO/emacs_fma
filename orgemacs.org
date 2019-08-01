@@ -1,5 +1,10 @@
 #+TITLE: My emacs init file for windows
-#+OPTIONS: toc:nil num:nil date:nil html-postamble:nil
+#+OPTIONS: toc:nil num:nil
+#+BIND: org-export-publishing-directory:"./docs/win"
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js@3.8.0
+#+REVEAL_THEME: black
+#+REVEAL_TRANS: convex
+#+REVEAL_TITLE_SLIDE: <h1>%t</h1>
 
 * powerline
 #+BEGIN_SRC emacs-lisp
@@ -258,3 +263,6 @@
   (add-hook 'haskell-interactive-mode-hook 'company-mode)
 #+END_SRC
 
+
+* END
+[[https://oitavo.github.io/][HOME]]
