@@ -1,5 +1,18 @@
 #+TITLE: My emacs init file for windows
 
+* mode-line
+#+BEGIN_SRC emacs-lisp
+  ;;; all-the-icons package
+  (use-package all-the-icons
+    :ensure t)
+
+  ;;; doom-modeline
+  (use-package doom-modeline
+    :ensure t
+    :hook (after-init . doom-modeline-mode))
+#+END_SRC
+
+
 * default-directory
 #+BEGIN_SRC emacs-lisp
 ;;; home directory
@@ -68,6 +81,10 @@
     :ensure t
     :init
     (setq org-reveal-root "file:///C:/home/reveal.js"))
+
+  ;;; htmlize package as dependency
+  (use-package htmlize
+    :ensure t)
 #+END_SRC
 
 
