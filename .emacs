@@ -25,7 +25,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(ac-auto-show-menu 0.05)
  '(ac-auto-start 2)
  '(ac-dcd-executable "~/DCD/bin/dcd-client")
@@ -71,7 +70,13 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(insert-default-directory nil)
  '(jedi:complete-on-dot t)
+ '(org-babel-C++-compiler "g++ -std=c++11")
  '(org-babel-load-languages (quote ((emacs-lisp . t) (C . t))))
+ '(org-publish-project-alist
+   (quote
+    (("presentation" :base-directory "~/org/presentations" :publishing-directory "~/org/presentations/reveal" :publishing-function org-reveal-publish-to-reveal)
+     ("reveal" :components
+      ("presentation")))))
  '(package-selected-packages
    (quote
     (dracula-theme flymake-cursor haskell-interactive-mode company-c-headers ac-clang ac-c-headers plantuml plantuml-mode auto-complete-config intero slime pug-mode w3 2048-game vue-mode vue-html-mode lsp-vue ac-dcd company-dcd d-mode dfmt flycheck-d-unittest material-theme srefactor tomatinho gtk-pomodoro-indicator htmlize org-present company-irony company-irony-c-headers flycheck-irony irony ace-window company-jedi jedi pyenv-mode elpy org-trello jdee yasnippet-classic-snippets google-c-style flymake-google-cpplint iedit yasnippet-snippets auto-complete-c-headers yasnippet emmet-mode emms auto-complete)))
