@@ -25,6 +25,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(ac-auto-show-menu 0.05)
  '(ac-auto-start 2)
  '(ac-dcd-executable "~/DCD/bin/dcd-client")
@@ -47,7 +48,7 @@
  '(company-tooltip-minimum 6)
  '(company-tooltip-minimum-width 30)
  '(current-language-environment "UTF-8")
- '(custom-enabled-themes (quote (leuven)))
+ '(custom-enabled-themes (quote (dracula)))
  '(custom-safe-themes
    (quote
     ("274fa62b00d732d093fc3f120aca1b31a6bb484492f31081c1814a858e25c72e" "732b807b0543855541743429c9979ebfb363e27ec91e82f463c91e68c772f6e3" "a24c5b3c12d147da6cef80938dca1223b7c7f70f2f382b26308eba014dc4833a" default)))
@@ -73,7 +74,7 @@
  '(org-babel-load-languages (quote ((emacs-lisp . t) (C . t))))
  '(package-selected-packages
    (quote
-    (doom-modeline dracula-theme flymake-cursor haskell-interactive-mode company-c-headers ac-clang ac-c-headers plantuml plantuml-mode auto-complete-config intero slime pug-mode w3 2048-game vue-mode vue-html-mode lsp-vue ac-dcd company-dcd d-mode dfmt flycheck-d-unittest material-theme srefactor tomatinho gtk-pomodoro-indicator htmlize org-present company-irony company-irony-c-headers flycheck-irony irony ace-window company-jedi jedi pyenv-mode elpy org-trello jdee yasnippet-classic-snippets google-c-style flymake-google-cpplint iedit yasnippet-snippets auto-complete-c-headers yasnippet emmet-mode emms auto-complete)))
+    (dracula-theme flymake-cursor haskell-interactive-mode company-c-headers ac-clang ac-c-headers plantuml plantuml-mode auto-complete-config intero slime pug-mode w3 2048-game vue-mode vue-html-mode lsp-vue ac-dcd company-dcd d-mode dfmt flycheck-d-unittest material-theme srefactor tomatinho gtk-pomodoro-indicator htmlize org-present company-irony company-irony-c-headers flycheck-irony irony ace-window company-jedi jedi pyenv-mode elpy org-trello jdee yasnippet-classic-snippets google-c-style flymake-google-cpplint iedit yasnippet-snippets auto-complete-c-headers yasnippet emmet-mode emms auto-complete)))
  '(plantuml-default-exec-mode (quote jar))
  '(plantuml-jar-path "~/plantuml/plantuml.jar")
  '(plantuml-java-args (quote ("-jar" "-Djava.awt.headless=true")))

@@ -79,6 +79,15 @@
 #+END_SRC
 
 
+* powerline
+#+BEGIN_SRC emacs-lisp
+  ;;; powerline-mode
+  (use-package powerline
+    :ensure t
+    :config (powerline-center-theme))
+#+END_SRC
+
+
 * Languages
 ** C and C++ MODE
 *** auto-complete
