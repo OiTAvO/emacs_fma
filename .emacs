@@ -47,7 +47,7 @@
  '(company-tooltip-minimum 6)
  '(company-tooltip-minimum-width 30)
  '(current-language-environment "UTF-8")
- '(custom-enabled-themes (quote (dracula)))
+ '(custom-enabled-themes (quote (material)))
  '(custom-safe-themes
    (quote
     ("274fa62b00d732d093fc3f120aca1b31a6bb484492f31081c1814a858e25c72e" "732b807b0543855541743429c9979ebfb363e27ec91e82f463c91e68c772f6e3" "a24c5b3c12d147da6cef80938dca1223b7c7f70f2f382b26308eba014dc4833a" default)))
