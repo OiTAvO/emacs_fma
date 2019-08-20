@@ -212,7 +212,7 @@
 	      (setq c-basic-offset 4)
 	      (setq tab-width 4)))
 
-  ;;; org-babel hightlight syntax for D
+  ;;; org-babel highlight syntax for D
   (add-to-list 'org-src-lang-modes '("D" . d))
 #+END_SRC
 
