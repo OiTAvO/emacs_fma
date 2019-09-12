@@ -264,5 +264,36 @@
 #+END_SRC
 
 
+** COMMON-LISP
+#+BEGIN_SRC emacs-lisp
+  ;;; slime-package
+  ;;;(use-package slime
+  ;;;  :ensure t
+  ;;  :config
+  (load (expand-file-name "~/quicklisp/slime-helper.el"))
+  (setq inferior-lisp-program "sbcl")
+  (setq slime-contribs '(slime-fancy))
+  ;;;  )
+
+  ;;; slime-company
+  ;; (use-package slime-company
+  ;;   :ensure t
+  ;;   :config
+  (slime-setup '(slime-fancy slime-company))
+  ;;  )
+
+  ;;; custom function to disable auto-complete
+  (defun my-slime-function()
+    (auto-complete-mode -1))
+
+
+  ;;; hooks
+  (add-hook 'slime-mode-hook 'company-mode)
+  (add-hook 'slime-mode-hook 'my-slime-function)
+  ;;;(add-hook 'slime-repl-mode-hook 'company-mode)
+  ;;;(add-hook 'slime-repl-mode-hook 'my-slime-function)
+#+END_SRC
+
+
 * END
 [[https://oitavo.github.io/][HOME]]
